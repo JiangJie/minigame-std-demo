@@ -1,0 +1,30 @@
+{
+  "name": "minigame-std-demo",
+  "version": "1.0.0",
+  "main": "game.js",
+  "scripts": {
+    "check": "npx tsc --noEmit",
+    "lint": "npx eslint src/",
+    "preesbuild": "npx rimraf dist/esbuild",
+    "esbuild": "node esbuild.mjs",
+    "prerollup": "npx rimraf dist/rollup",
+    "rollup": "npx rollup --config rollup.config.mjs",
+    "build": "npm run esbuild && npm run rollup"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "esbuild": "^0.21.1",
+    "eslint": "^8.57.0",
+    "rimraf": "^5.0.7",
+    "rollup": "^4.17.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "minigame-std": "file:../minigame-std"
+  }
+}
