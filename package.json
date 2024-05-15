@@ -1,30 +1,32 @@
 {
   "name": "minigame-std-demo",
+  "description": "Test cases for minigame-std.",
+  "author": "jiang115jie@gmail.com",
+  "license": "GPL-3.0",
   "version": "1.0.0",
   "main": "game.js",
   "scripts": {
-    "check": "npx tsc --noEmit",
-    "lint": "npx eslint src/",
-    "preesbuild": "npx rimraf dist/esbuild",
-    "esbuild": "node esbuild.mjs",
-    "prerollup": "npx rimraf dist/rollup",
-    "rollup": "npx rollup --config rollup.config.mjs",
-    "build": "npm run esbuild && npm run rollup"
+    "check": "pnpm exec tsc --noEmit",
+    "lint": "pnpm exec eslint src/",
+    "prebuild": "pnpm exec rimraf dist",
+    "build": "pnpm exec rollup --config rollup.config.mjs",
+    "watch": "pnpm run build --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
-    "esbuild": "^0.21.1",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
     "eslint": "^8.57.0",
     "rimraf": "^5.0.7",
     "rollup": "^4.17.2",
+    "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@std/assert": "npm:@jsr/std__assert@~0.224.0",
+    "minigame-api-typings": "^3.8.4",
     "minigame-std": "file:../minigame-std"
   }
 }
