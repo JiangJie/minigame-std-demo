@@ -2,14 +2,15 @@
   "description": "项目配置文件。",
   "setting": {
     "urlCheck": true,
-    "es6": true,
+    "es6": false,
     "postcss": true,
-    "minified": true,
+    "minified": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "enhance": false
   },
   "compileType": "game",
   "libVersion": "2.20.1",
@@ -23,6 +24,5 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  },
-  "isGameTourist": true
+  }
 }
