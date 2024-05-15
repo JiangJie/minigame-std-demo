@@ -1,3 +1,4 @@
+import { assert } from '@std/assert';
 import { getTargetType } from 'minigame-std';
 
-console.assert(getTargetType() === 'wx');
+assert(getTargetType() === 'wx');

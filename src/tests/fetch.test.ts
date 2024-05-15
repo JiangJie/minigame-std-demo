@@ -1,3 +1,4 @@
+import { assert } from '@std/assert';
 import { fetchT } from 'minigame-std';
 
 (async () => {
@@ -15,8 +16,8 @@ import { fetchT } from 'minigame-std';
     const res = await fetchTask.response;
 
     if (res.isErr()) {
-        console.assert((res.err() as Error).name === 'AbortError');
+        assert((res.err() as Error).name === 'AbortError');
     } else {
-        console.assert(res.unwrap().name === 'happy-rusty');
+        assert(res.unwrap().name === 'happy-rusty');
     }
 })();

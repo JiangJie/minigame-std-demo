@@ -1,4 +1,5 @@
-import { connectSocket } from 'minigame-std';
+import { assert } from '@std/assert';
+import { connectSocket, isDevtools } from 'minigame-std';
 
 const data = 'minigame-std';
 
@@ -9,9 +10,9 @@ socket.addEventListener('message', (msg) => {
     count += 1;
 
     if (count === 1) {
-        console.assert((msg as string).startsWith('Request served by'));
+        assert((msg as string).startsWith('Request served by'));
     } else if (count === 2) {
-        console.assert(msg === data);
+        assert(msg === data);
         socket.close();
     }
 });
@@ -21,7 +22,8 @@ socket.addEventListener('error', (err) => {
 });
 
 socket.addEventListener('close', (code) => {
-    console.assert(code === 1005);
+    // 开发者工具有差异
+    assert(code === (isDevtools() ? 1005 : 1000));
 });
 
 socket.addEventListener('open', () => {
