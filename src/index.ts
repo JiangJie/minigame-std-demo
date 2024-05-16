@@ -1,9 +1,2 @@
-import './tests/base64.test';
-import './tests/clipboard.test';
-import './tests/codec.test';
-import './tests/event.test';
-import './tests/fetch.test';
-import './tests/fs.test';
-import './tests/platform.test';
-import './tests/socket.test';
-import './tests/storage.test';
+import './main.ts';
+import './tests/mod.ts';
