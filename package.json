@@ -27,6 +27,6 @@
   "dependencies": {
     "@std/assert": "npm:@jsr/std__assert@~0.224.0",
     "minigame-api-typings": "^3.8.4",
-    "minigame-std": "file:../minigame-std"
+    "minigame-std": "^1.0.0"
   }
 }
