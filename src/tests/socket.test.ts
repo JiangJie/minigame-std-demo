@@ -1,5 +1,5 @@
 import { assert } from '@std/assert';
-import { connectSocket, isDevtools } from 'minigame-std';
+import { connectSocket, platform } from 'minigame-std';
 
 const data = 'minigame-std';
 
@@ -23,7 +23,7 @@ socket.addEventListener('error', (err) => {
 
 socket.addEventListener('close', (code) => {
     // 开发者工具有差异
-    assert(code === (isDevtools() ? 1005 : 1000));
+    assert(code === (platform.isMiniGameDevtools() ? 1005 : 1000));
 });
 
 socket.addEventListener('open', () => {
