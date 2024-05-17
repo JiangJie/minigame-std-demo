@@ -15,8 +15,8 @@ importers:
         specifier: ^3.8.4
         version: 3.8.4
       minigame-std:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.0.1
+        version: 1.0.1
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: ^25.0.7
@@ -682,8 +682,8 @@ packages:
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
-  happy-opfs@1.0.8:
-    resolution: {integrity: sha512-Rp+LxfDygvomrFLhtr3IlnT49DFjoc4xPvwBdMsEBRyDSK0rPqTGoCnSLn/vDzJj/7N2W/zOxWb3mSn1k6RiKA==}
+  happy-opfs@1.0.9:
+    resolution: {integrity: sha512-bnLLiwQ0yFzcKO/0rko8sXUYE71bC7Nn/Vclt/2ZyK1GJLwPAepItvmxa27qHL9siwX64kSH+uvY1z3wftvAhQ==}
 
   happy-rusty@1.0.9:
     resolution: {integrity: sha512-4WOXfTlzD1FNB28FDrCRK0JSvdskLB7sXitH76cdIKvp34VaKEH1ZC8dGUX6iFaZGKHzb/eAg9XfdUlPnVWq7A==}
@@ -799,8 +799,8 @@ packages:
   minigame-api-typings@3.8.4:
     resolution: {integrity: sha512-2dPLR97Bgy4FHC/av3nk84CW75zppdKvimDgUEE/3qCLesguRddjcqmkUGG+oMvj87AXAx1K10pHaMjquIqwBw==}
 
-  minigame-std@1.0.0:
-    resolution: {integrity: sha512-E7n5iSE1ImbGNw4DFF5qrUjs2jFFOCOWAcwHUuybp+sd3yMgiSEBiE37/bWc3tyRWBzDF22E5jEiRXZKS5k8Sw==}
+  minigame-std@1.0.1:
+    resolution: {integrity: sha512-Za3QVOcTSERpmY8XmmAjQfld0IlrVOzJdOSLlyNJQCvN83P3E3MBQc0UzIeJNePQArJoS1Ofp9aJDQNAvA/K+Q==}
 
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -1636,7 +1636,7 @@ snapshots:
 
   graphemer@1.4.0: {}
 
-  happy-opfs@1.0.8:
+  happy-opfs@1.0.9:
     dependencies:
       '@std/path': '@jsr/std__path@0.224.0'
       happy-rusty: 1.0.9
@@ -1739,11 +1739,11 @@ snapshots:
 
   minigame-api-typings@3.8.4: {}
 
-  minigame-std@1.0.0:
+  minigame-std@1.0.1:
     dependencies:
       '@happy-ts/fetch-t': 1.0.8
       '@std/path': '@jsr/std__path@0.224.0'
-      happy-opfs: 1.0.8
+      happy-opfs: 1.0.9
       happy-rusty: 1.0.9
       minigame-api-typings: 3.8.4
 
