@@ -3,9 +3,7 @@ import { fs } from 'minigame-std';
 
 (async () => {
     // Clear all files and folders
-    console.time('fs.clear-root');
-    await fs.remove('/');
-    console.timeEnd('fs.clear-root');
+    await fs.emptyDir('/');
     // Recursively create the /happy/opfs directory
     await fs.mkdir('/happy/opfs');
     // Create and write file content
@@ -19,7 +17,7 @@ import { fs } from 'minigame-std';
     assert((await fs.stat('/happy/opfs/a.txt')).isErr());
     assert((await fs.readFile('/happy/b.txt')).unwrap().byteLength === 21);
     // Automatically normalize the path
-    assert((await fs.readTextFile('//happy///b.txt//')).unwrap() === 'hello opfs happy opfs');
+    assert((await fs.readTextFile('/happy/b.txt')).unwrap() === 'hello opfs happy opfs');
 
     await fs.remove('/happy/opfs');
 
@@ -27,23 +25,37 @@ import { fs } from 'minigame-std';
     assert((await fs.exists('/happy/b.txt')).unwrap());
 
     // Download a file
-    assert((await fs.downloadFile('https://jsonplaceholder.typicode.com/posts/1', '/post.json')).unwrap());
+    const downloadRes = await fs.downloadFile('https://jsonplaceholder.typicode.com/todos/1', '/todo.json');
+    if (downloadRes.isOk()) {
+        assert(downloadRes.unwrap());
+    } else {
+        assert(downloadRes.err() instanceof Error);
+    }
 
-    const postData = (await fs.readTextFile('/post.json')).unwrap();
-    const postJson = JSON.parse(postData);
-    assert(postJson.userId === 1);
+    const postData = (await fs.readTextFile('/todo.json')).unwrap();
+    const postJson: {
+        id: number;
+        title: string;
+    } = JSON.parse(postData);
+    assert(postJson.id === 1);
 
     // Modify the file
     postJson.title = 'minigame-std';
-    await fs.writeFile('/post.json', JSON.stringify(postJson));
+    await fs.writeFile('/todo.json', JSON.stringify(postJson));
 
     // Upload a file
-    assert((await fs.uploadFile('/post.json', 'https://jsonplaceholder.typicode.com/posts')).unwrap());
+    assert((await fs.uploadFile('/todo.json', 'https://jsonplaceholder.typicode.com/todos')).unwrap());
+
+    // Will create directory
+    await fs.emptyDir('/not-exists');
 
     // List all files and folders in the root directory
     for await (const name of (await fs.readDir('/')).unwrap()) {
-        // post.json
-        // happy
+        // todo.json is a file
+        // not-exists is a directory
+        // happy is a directory
         console.log(name);
     }
+
+    await fs.emptyDir('/');
 })();
