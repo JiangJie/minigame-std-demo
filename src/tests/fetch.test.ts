@@ -4,7 +4,7 @@ import { fetchT } from 'minigame-std';
 (async () => {
     const fetchTask = fetchT<{
         name: string;
-    }>('https://jsr.io/@happy-js/happy-rusty/meta.json', {
+    }>('https://jsr.io/@happy-js/minigame-std/meta.json', {
         abortable: true,
         responseType: 'json',
     });
@@ -16,8 +16,8 @@ import { fetchT } from 'minigame-std';
     const res = await fetchTask.response;
 
     if (res.isErr()) {
-        assert((res.err() as Error).name === 'AbortError');
+        assert((res.unwrapErr() as Error).name === 'AbortError');
     } else {
-        assert(res.unwrap().name === 'happy-rusty');
+        assert(res.unwrap().name === 'minigame-std');
     }
 })();

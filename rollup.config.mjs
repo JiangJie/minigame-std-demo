@@ -14,6 +14,7 @@ export default {
         }),
         replace({
             preventAssignment: true,
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
             __MINIGAME_STD_MINA__: `true`,
         }),
         nodeResolve(),

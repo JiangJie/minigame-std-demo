@@ -11,22 +11,20 @@ import { storage } from 'minigame-std';
 
     // NOTE: 2024-05-14
     // 开发者工具有bug，setStorage之后立马getStorage会报错
-    setTimeout(async () => {
-        console.time('storage-getItem');
-        const text = await storage.getItem(key);
-        assert(text.unwrap() === data);
-        console.timeEnd('storage-getItem');
+    console.time('storage-getItem');
+    const text = await storage.getItem(key);
+    assert(text.unwrap() === data);
+    console.timeEnd('storage-getItem');
 
-        console.time('storage-removeItem');
-        await storage.removeItem(key);
-        console.timeEnd('storage-removeItem');
+    console.time('storage-removeItem');
+    await storage.removeItem(key);
+    console.timeEnd('storage-removeItem');
 
-        const textNotExists = await storage.getItem(key);
-        assert(textNotExists.isNone());
+    const textNotExists = await storage.getItem(key);
+    assert(textNotExists.isNone());
 
-        await storage.setItem(key, data);
-        console.time('storage-clear');
-        await storage.clear();
-        console.timeEnd('storage-clear');
-    }, 100);
+    await storage.setItem(key, data);
+    console.time('storage-clear');
+    await storage.clear();
+    console.timeEnd('storage-clear');
 })();

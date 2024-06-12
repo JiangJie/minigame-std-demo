@@ -2,6 +2,10 @@ import { assert } from '@std/assert';
 import { fs } from 'minigame-std';
 
 (async () => {
+    const mockServer = 'https://16a6dafa-2258-4a83-88fa-31a409e42b17.mock.pstmn.io';
+    const mockTodos = `${ mockServer }/todos`;
+    const mockTodo1 = `${ mockTodos }/1`;
+
     // Clear all files and folders
     await fs.emptyDir('/');
     // Recursively create the /happy/opfs directory
@@ -25,11 +29,11 @@ import { fs } from 'minigame-std';
     assert((await fs.exists('/happy/b.txt')).unwrap());
 
     // Download a file
-    const downloadRes = await fs.downloadFile('https://jsonplaceholder.typicode.com/todos/1', '/todo.json');
+    const downloadRes = await fs.downloadFile(mockTodo1, '/todo.json');
     if (downloadRes.isOk()) {
         assert(downloadRes.unwrap());
     } else {
-        assert(downloadRes.err() instanceof Error);
+        assert(downloadRes.unwrapErr() instanceof Error);
     }
 
     const postData = (await fs.readTextFile('/todo.json')).unwrap();
@@ -44,7 +48,7 @@ import { fs } from 'minigame-std';
     await fs.writeFile('/todo.json', JSON.stringify(postJson));
 
     // Upload a file
-    assert((await fs.uploadFile('/todo.json', 'https://jsonplaceholder.typicode.com/todos')).unwrap());
+    assert((await fs.uploadFile('/todo.json', mockTodos)).unwrap());
 
     // Will create directory
     await fs.emptyDir('/not-exists');
