@@ -1,3 +1,5 @@
 {
-    "deviceOrientation": "portrait"
+    "deviceOrientation": "portrait",
+    "iOSHighPerformance": true,
+    "iOSHighPerformance+": true
 }
