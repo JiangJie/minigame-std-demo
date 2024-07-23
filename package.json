@@ -15,21 +15,21 @@
   "devDependencies": {
     "@babel/plugin-transform-logical-assignment-operators": "^7.24.7",
     "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.7",
-    "@babel/plugin-transform-optional-chaining": "^7.24.7",
+    "@babel/plugin-transform-optional-chaining": "^7.24.8",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.7",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
     "eslint": "^8.57.0",
-    "rollup": "^4.18.0",
+    "rollup": "^4.19.0",
     "rollup-plugin-esbuild": "^6.1.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@std/assert": "npm:@jsr/std__assert@~0.224.0",
+    "@std/assert": "npm:@jsr/std__assert@1.0.0-rc.3",
     "minigame-api-typings": "^3.8.4",
-    "minigame-std": "^1.0.2"
+    "minigame-std": "^1.0.5"
   }
 }
