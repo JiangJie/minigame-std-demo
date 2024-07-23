@@ -21,3 +21,18 @@ import { fetchT } from 'minigame-std';
         assert(res.unwrap().name === 'minigame-std');
     }
 })();
+
+(async () => {
+    const res = await fetchT<{
+        name: string;
+    }>('https://jsr.io/@happy-js/minigame-std/meta.json', {
+        responseType: 'json',
+        timeout: 10,
+    });
+
+    if (res.isErr()) {
+        assert((res.unwrapErr() as Error).name === 'TimeoutError');
+    } else {
+        assert(res.unwrap().name === 'minigame-std');
+    }
+})();
