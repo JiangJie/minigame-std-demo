@@ -23,12 +23,14 @@ import { fetchT } from 'minigame-std';
 })();
 
 (async () => {
-    const res = await fetchT<{
+    const task = fetchT<{
         name: string;
     }>('https://jsr.io/@happy-js/minigame-std/meta.json', {
         responseType: 'json',
         timeout: 10,
     });
+
+    const res = await task.response;
 
     if (res.isErr()) {
         assert((res.unwrapErr() as Error).name === 'TimeoutError');
