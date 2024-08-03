@@ -1,6 +1,5 @@
 import { addErrorListener, addUnhandledrejectionListener } from 'minigame-std';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 // const mock: any = null;
 
 addErrorListener((err) => {

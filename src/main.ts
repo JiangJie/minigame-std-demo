@@ -1,5 +1,5 @@
 const canvas = wx.createCanvas() as unknown as HTMLCanvasElement;
-const ctx = canvas.getContext('2d')!;
+const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
 // window.requestAnimationFrame(loop)
 
