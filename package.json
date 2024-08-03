@@ -7,7 +7,7 @@
   "main": "game.js",
   "scripts": {
     "check": "pnpm exec tsc --noEmit",
-    "lint": "pnpm exec eslint src/",
+    "lint": "pnpm exec eslint .",
     "prebuild": "pnpm dlx rimraf dist",
     "build": "pnpm exec rollup --config rollup.config.mjs",
     "watch": "pnpm run build --watch"
@@ -16,16 +16,17 @@
     "@babel/plugin-transform-logical-assignment-operators": "^7.24.7",
     "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.7",
     "@babel/plugin-transform-optional-chaining": "^7.24.8",
+    "@eslint/js": "^9.8.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.7",
-    "@typescript-eslint/eslint-plugin": "^7.17.0",
-    "@typescript-eslint/parser": "^7.17.0",
-    "eslint": "^8.57.0",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.8.0",
     "rollup": "^4.19.0",
     "rollup-plugin-esbuild": "^6.1.1",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0"
   },
   "dependencies": {
     "@std/assert": "npm:@jsr/std__assert@1.0.0-rc.3",
