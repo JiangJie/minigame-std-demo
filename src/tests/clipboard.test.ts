@@ -6,7 +6,7 @@ import { clipboard } from 'minigame-std';
 
     console.time('write-clipboard');
     const success = await clipboard.writeText(data);
-    assert(success.unwrap());
+    assert(success.isOk());
     console.timeEnd('write-clipboard');
 
     console.time('read-clipboard');

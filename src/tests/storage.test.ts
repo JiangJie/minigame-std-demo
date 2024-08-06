@@ -21,7 +21,7 @@ import { storage } from 'minigame-std';
     console.timeEnd('storage-removeItem');
 
     const textNotExists = await storage.getItem(key);
-    assert(textNotExists.isNone());
+    assert(textNotExists.isErr());
 
     await storage.setItem(key, data);
     console.time('storage-clear');

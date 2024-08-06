@@ -26,7 +26,7 @@ import { fs } from 'minigame-std';
     // Automatically normalize the path
     assert((await fs.readTextFile('//happy///b.txt//')).unwrap() === 'hello opfs happy opfs');
 
-    assert((await fs.remove('/happy/not/fs.exists')).unwrap());
+    assert((await fs.remove('/happy/not/fs.exists')).isOk());
     await fs.remove('/happy/opfs');
 
     assert(!(await fs.exists('/happy/opfs')).unwrap());
