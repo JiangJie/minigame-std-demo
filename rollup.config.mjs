@@ -1,4 +1,3 @@
-import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
@@ -20,13 +19,6 @@ export default {
         }),
         nodeResolve(),
         commonjs(),
-        getBabelOutputPlugin({
-            plugins: [
-                '@babel/plugin-transform-optional-chaining',
-                '@babel/plugin-transform-nullish-coalescing-operator',
-                '@babel/plugin-transform-logical-assignment-operators',
-            ],
-        }),
     ],
     output: [
         {
