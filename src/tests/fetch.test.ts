@@ -7,11 +7,14 @@ import { fetchT } from 'minigame-std';
     }>('https://jsr.io/@happy-js/minigame-std/meta.json', {
         abortable: true,
         responseType: 'json',
+        onChunk: (chunk) => {
+            console.log('chunk', chunk);
+        },
     });
 
     setTimeout(() => {
         fetchTask.abort();
-    }, 100);
+    }, 1000);
 
     const res = await fetchTask.response;
 
