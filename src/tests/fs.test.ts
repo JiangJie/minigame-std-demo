@@ -1,5 +1,5 @@
 import { assert } from '@std/assert';
-import { encode, fs } from 'minigame-std';
+import { fs, textEncode } from 'minigame-std';
 
 const mockServer = 'https://fakestoreapi.com';
 
@@ -17,11 +17,12 @@ async function testAsync() {
     await fs.writeFile('/happy/opfs/a.txt', 'hello opfs');
     await fs.writeFile('/happy/op-fs/fs.txt', 'hello opfs');
     // Move the file
-    (await fs.rename('/happy/opfs/a.txt', '/happy/b.txt')).inspectErr(err => {
-        console.log('rename', err);
+    await fs.move('/happy/opfs/a.txt', '/happy/b.txt');
+    (await fs.move('/happy/op-fs', '/happy/opfs-bak')).inspectErr(err => {
+        console.log('move', err);
     });
     // Append content to the file
-    (await fs.appendFile('/happy/b.txt', encode(' happy opfs'))).inspectErr(err => {
+    (await fs.appendFile('/happy/b.txt', textEncode(' happy opfs'))).inspectErr(err => {
         console.log('appendFile', err);
     });
 
@@ -115,7 +116,7 @@ async function testAsync() {
         console.log(name);
     }
 
-    // await fs.remove(fs.ROOT_DIR);
+    await fs.remove(fs.ROOT_DIR);
 }
 
 function testSync() {
@@ -127,11 +128,11 @@ function testSync() {
     fs.writeFileSync('/happy/opfs/a.txt', 'hello opfs');
     fs.writeFileSync('/happy/op-fs/fs.txt', 'hello opfs');
     // Move the file
-    fs.renameSync('/happy/opfs/a.txt', '/happy/b.txt').inspectErr(err => {
+    fs.moveSync('/happy/opfs/a.txt', '/happy/b.txt').inspectErr(err => {
         console.log('rename', err);
     });
     // Append content to the file
-    fs.appendFileSync('/happy/b.txt', encode(' happy opfs'));
+    fs.appendFileSync('/happy/b.txt', textEncode(' happy opfs'));
 
     // File no longer exists
     const statRes = fs.statSync('/happy/opfs/a.txt');
@@ -172,5 +173,5 @@ function testSync() {
 
 (async () => {
     await testAsync();
-    // testSync();
+    testSync();
 })();

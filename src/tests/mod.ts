@@ -1,3 +1,4 @@
+import './audio.test.ts';
 import './base64.test.ts';
 import './clipboard.test.ts';
 import './codec.test.ts';
