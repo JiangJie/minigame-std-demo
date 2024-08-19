@@ -19,14 +19,14 @@
     "@rollup/plugin-replace": "^5.0.7",
     "@types/eslint__js": "^8.42.3",
     "eslint": "^9.9.0",
-    "rollup": "^4.20.0",
+    "rollup": "^4.21.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.0.1"
+    "typescript-eslint": "^8.1.0"
   },
   "dependencies": {
     "@std/assert": "npm:@jsr/std__assert@1.0.2",
     "minigame-api-typings": "^3.8.5",
-    "minigame-std": "^1.5.0"
+    "minigame-std": "^1.6.0"
   }
 }

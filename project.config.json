@@ -2,7 +2,7 @@
   "description": "项目配置文件。",
   "setting": {
     "urlCheck": true,
-    "es6": true,
+    "es6": false,
     "postcss": true,
     "minified": false,
     "babelSetting": {
@@ -10,7 +10,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enhance": true
+    "enhance": false
   },
   "compileType": "game",
   "libVersion": "2.20.1",
