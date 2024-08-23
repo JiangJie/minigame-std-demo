@@ -48,7 +48,7 @@ async function testAsync() {
         timeout: 1000,
         onProgress(progressResult) {
             progressResult.inspect(progress => {
-                console.assert(progress.completedByteLength <= progress.totalByteLength);
+                assert(progress.completedByteLength <= progress.totalByteLength);
             }).inspectErr(err => {
                 console.log(err);
             });
@@ -80,7 +80,7 @@ async function testAsync() {
         const downloadTask = fs.downloadFile(mockSingle);
         const downloadRes = await downloadTask.response;
         downloadRes.inspect(x => {
-            console.assert(x.tempFilePath.includes('/tmp/'));
+            assert(x.tempFilePath.includes('/tmp/'));
         });
         if (downloadRes.isOk()) {
             await fs.remove(downloadRes.unwrap().tempFilePath);
@@ -92,17 +92,17 @@ async function testAsync() {
 
     // Zip/Unzip
     assert((await fs.zip('/happy', '/happy.zip')).isOk());
-    console.assert((await fs.zip('/happy')).unwrap().byteLength === (await fs.readFile('/happy.zip')).unwrap().byteLength);
+    assert((await fs.zip('/happy')).unwrap().byteLength === (await fs.readFile('/happy.zip')).unwrap().byteLength);
     assert((await fs.unzip('/happy.zip', '/happy-2')).isOk());
-    console.assert((await fs.unzipFromUrl(mockZipUrl, '/happy-3', {
+    assert((await fs.unzipFromUrl(mockZipUrl, '/happy-3', {
         onProgress(progressResult) {
             progressResult.inspect(progress => {
                 console.log(`Unzipped ${ progress.completedByteLength }/${ progress.totalByteLength } bytes`);
             });
         },
     })).isOk());
-    console.assert((await fs.zipFromUrl(mockZipUrl, '/test-zip.zip')).isOk());
-    console.assert((await fs.zipFromUrl(mockZipUrl)).unwrap().byteLength === (await fs.readFile('/test-zip.zip')).unwrap().byteLength);
+    assert((await fs.zipFromUrl(mockZipUrl, '/test-zip.zip')).isOk());
+    assert((await fs.zipFromUrl(mockZipUrl)).unwrap().byteLength === (await fs.readFile('/test-zip.zip')).unwrap().byteLength);
 
     // Copy
     await fs.mkdir('/happy/copy');

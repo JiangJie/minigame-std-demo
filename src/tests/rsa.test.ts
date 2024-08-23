@@ -1,7 +1,3 @@
-// deno-lint-ignore-file no-explicit-any
-/* eslint-disable @typescript-eslint/no-explicit-any */
-(globalThis as any).__MINIGAME_STD_MINA__ = false;
-
 import { cryptos } from 'minigame-std';
 
 (async () => {

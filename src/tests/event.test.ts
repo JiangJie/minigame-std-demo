@@ -1,4 +1,4 @@
-import { addErrorListener, addUnhandledrejectionListener } from 'minigame-std';
+import { addErrorListener, addResizeListener, addUnhandledrejectionListener } from 'minigame-std';
 
 // const mock: any = null;
 
@@ -12,10 +12,6 @@ addUnhandledrejectionListener((err) => {
     // console.log('addUnhandledrejectionListener promise', err.promise);
 });
 
-// setTimeout(() => {
-//     mock.notExistsFunction();
-// }, 1000);
-
-// setTimeout(() => {
-//     Promise.reject('test');
-// }, 2000);
+addResizeListener(size => {
+    console.log('addResizeListener', size.windowWidth, size.windowHeight);
+});

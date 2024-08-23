@@ -22,11 +22,11 @@
     "rollup": "^4.21.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.1.0"
+    "typescript-eslint": "^8.2.0"
   },
   "dependencies": {
     "@std/assert": "npm:@jsr/std__assert@1.0.2",
     "minigame-api-typings": "^3.8.5",
-    "minigame-std": "^1.6.0"
+    "minigame-std": "^1.7.0"
   }
 }
